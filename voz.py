@@ -131,7 +131,7 @@ target_language = st.selectbox("Seleccione el idioma a traducir:", languages)
 translate = st.button('Traducir')
 if translate:
     translator = Translator()
-    out = translator.translate(source_text,dest='en')
+    out = translator.translate(source_text,dest=languages)
     st.write(out.text)
         
                                
