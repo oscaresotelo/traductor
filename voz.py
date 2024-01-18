@@ -8,7 +8,7 @@ import pyttsx3
 speak = pyttsx3.init()
 voices = speak.getProperty('voices')
 voice_id = 'english'
-speak.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0')
+speak.setProperty('voice', voice_id)
 
 st.title("Traductor Universal.oscar inc.")
 
