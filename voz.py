@@ -117,16 +117,21 @@
 #         salida = out.text
 #         speak.say(salida)
 #         speak.runAndWait()
+
+
+
 import streamlit as st 
 from googletrans import Translator
 from languages import *
 
 
-st.title("Language Translation App")
-source_text = st.text_area("Enter text to translate:")
-target_language = st.selectbox("Select target language:", languages)
-translate = st.button('Translate')
+st.title("Traductor Universal.oscar inc.")
+source_text = st.text_area("Texto A Traducir:")
+target_language = st.selectbox("Seleccione el idioma a traducir:", languages)
+translate = st.button('Traducir')
 if translate:
     translator = Translator()
     out = translator.translate(source_text,dest='en')
     st.write(out.text)
+        
+                               
