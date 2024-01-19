@@ -3,3 +3,4 @@ streamlit==1.26.0
 bokeh==2.4.3
 streamlit-bokeh-events==0.1.2
 pyttsx3==2.90
+gTTS==2.4.0
