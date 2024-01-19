@@ -71,10 +71,10 @@ import pyttsx3
 from gtts import gTTS
 from io import BytesIO
 sound_file = BytesIO()
-speak = pyttsx3.init()
-voices = speak.getProperty('voices')
-voice_id = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0'
-speak.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0')
+# speak = pyttsx3.init()
+# voices = speak.getProperty('voices')
+# voice_id = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0'
+# speak.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0')
 translator = Translator()
 st.title("Traductor Universal.oscar inc.")
 
