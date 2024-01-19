@@ -68,15 +68,17 @@ from streamlit_bokeh_events import streamlit_bokeh_events
 from googletrans import Translator
 from languages import *
 import pyttsx3
-
+from gtts import gTTS
+from io import BytesIO
+sound_file = BytesIO()
 speak = pyttsx3.init()
 voices = speak.getProperty('voices')
-voice_id = 'english'
-speak.setProperty('voice', voice_id)
+voice_id = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0'
+speak.setProperty('voice', 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_ES-MX_SABINA_11.0')
 translator = Translator()
 st.title("Traductor Universal.oscar inc.")
 
-stt_button = Button(label="Speak", width=100)
+stt_button = Button(label="Presiona para Hablar", width=100)
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
@@ -114,24 +116,13 @@ if result:
         # translator = Translator(service_urls=['translate.google.com'])
         out = translator.translate(source_text, dest='en')
         st.write(out.text)
+
         salida = out.text
-        speak.say(salida)
-        speak.runAndWait()
+        tts = gTTS(salida, lang='en')
+        tts.write_to_fp(sound_file)
+        st.audio(sound_file)
+        # speak.say(salida)
+        # speak.runAndWait()
 
 
 
-# import streamlit as st 
-# from googletrans import Translator
-# from languages import *
-
-
-# st.title("Traductor Universal.oscar inc.")
-# source_text = st.text_area("Texto A Traducir:")
-# target_language = st.selectbox("Seleccione el idioma a traducir:", languages)
-# translate = st.button('Traducir')
-# if translate:
-#     translator = Translator()
-#     out = translator.translate(source_text,dest= target_language)
-#     st.write(out.text)
-        
-                               
